@@ -110,6 +110,56 @@ void linkedList<T>::insertAfter(node<T> *prevNode, T data)
     newNode->_next = prevNode->_next;
     prevNode->_next = newNode;
 }
+
+template <class T>
+void linkedList<T>::deleteAt(int idx)
+{
+    if (idx < 0 || idx >= this->_length)
+    {
+        std::cout << "Index Error" << std::endl;
+    }
+    else
+    {
+        node<T> *nodeH = this->_head;
+        if (idx == 0)
+        {
+            this->_head = nodeH->_next;
+            delete nodeH;
+            if (this->isEmpty())
+                this->_tail = nullptr;
+        }
+        else
+        {
+            for (int i = 0; i < idx - 1; i++)
+            {
+                nodeH = nodeH->_next;
+            }
+            node<T> *tmp = nodeH->_next;
+            nodeH->_next = nodeH->_next->_next;
+            delete tmp;
+            if (idx == this->_length - 1)
+            {
+                this->_tail = nodeH;
+            }
+        }
+        this->_length--;
+    }
+}
+template <class T>
+void linkedList<T>::deleteNodesByValue(T value)
+{
+    int numDeleted = 0;
+    node<T> *curr = this->_head;
+    node<T> *tmp;
+    while (!isEmpty() && curr->_data == value)
+    {
+        tmp = curr;
+        this->_head = curr->next;
+        curr = curr->_next;
+        delete tmp;
+        numDeleted++;
+    }
+}
 template <class T>
 void linkedList<T>::print()
 {

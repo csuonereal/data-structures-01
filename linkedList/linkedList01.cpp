@@ -13,4 +13,6 @@ int main()
 
     list1->insertAfter(list1->_head->_next, 42);
     list1->print();
+    list1->deleteAt(2);
+    list1->print();
 }
