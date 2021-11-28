@@ -7,7 +7,8 @@ int main()
 
     for (int i = 0; i < 10; i++)
     {
-        list1->insertAtBegin(i);
+        //list1->insertAtBegin(i);
+        list1->insertAtEnd(i);
     }
 
     list1->insertAfter(list1->_head->_next, 42);

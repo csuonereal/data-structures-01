@@ -84,15 +84,15 @@ void linkedList<T>::insertAtEnd(T data)
     if (this->isEmpty())
     {
         newNode = new node<T>();
-        this._head = newNode;
+        this->_head = newNode;
     }
     else
     {
-        newNode = this._tail;
+        newNode = this->_tail;
         newNode->_next = new node<T>();
         newNode = newNode->_next;
     }
-    newNode._data = data;
+    newNode->_data = data;
     newNode->_next = nullptr;
     this->_tail = newNode;
     this->_length++;
