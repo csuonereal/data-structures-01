@@ -26,8 +26,7 @@ protected:
 template <class T>
 void hashTable<T>::calculateIndex(const T &item, int &hashIndex)
 {
-    int ascii = item;
-    hashIndex = (ascii % _maxSize);
+    hashIndex = (item % _maxSize);
 }
 template <class T>
 void hashTable<T>::insert(int hashIndex, const T &item)
